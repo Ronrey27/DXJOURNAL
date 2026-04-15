@@ -19,20 +19,23 @@ Docker Desktop (o Docker Engine en Linux).
 Visual Studio Code (con la extensión Dev Containers).
 
 # 1. Clonar el repositorio 
+```bash
 git clone https://github.com/Ronrey27/DXJOURNAL.git 
 cd DXJORNAL
-
+```
 # 2. Levantar por primera vez (Dockerfile):
-
+```bash
 docker compose up -d --build
-
+```
 # 3. Instalar dependencias de PHP 
+```bash
 docker exec -it DXJORNAL composer install
-
+```
 # 4. Generar clave de aplicación y migrar base de datos 
+```bash
 docker exec -it DXJORNAL php artisan key:generate 
 docker exec -it DXJORNAL php artisan migrate
-
+```
 
 2. Arquitectura de Contenedores
 
@@ -50,13 +53,14 @@ Host: mysql (dentro de Docker) o 127.0.0.1 (desde Windows).
 
 hacer una copia de env.example [cp env.example .env]
 
+```bash
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
 DB_DATABASE=dxjournal_db
 DB_USERNAME=user
 DB_PASSWORD=user
-
+```
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
