@@ -48,11 +48,14 @@ Credenciales de Base de Datos (Locales):
 
 Host: mysql (dentro de Docker) o 127.0.0.1 (desde Windows).
 
-Puerto: 3306.
+hacer una copia de env.example [cp env.example .env]
 
-Usuario: user.
-
-Password: user.
+DB_CONNECTION=mysql
+DB_HOST=mysql
+DB_PORT=3306
+DB_DATABASE=dxjournal_db
+DB_USERNAME=user
+DB_PASSWORD=user
 
 ## About Laravel
 
