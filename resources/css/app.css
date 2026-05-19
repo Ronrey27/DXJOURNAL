@@ -2,14 +2,33 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
 body {
-    background: linear-gradient(135deg, #ffffff 0%, #764ba2 100%);
-    height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh; /* Importante: min-height en lugar de height */
+    margin: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
+    /* Cambiamos el alineado vertical */
+    align-items: flex-start; 
+    padding: 2rem 0; /* Espacio para que respire arriba y abajo al hacer scroll */
+    overflow-y: auto; /* Permite scroll si el dashboard crece */
 }
 
+/* Estilos específicos para la página de Bienvenida */
+.welcome-icon {
+    font-size: 4rem;
+}
+.btn-logout, .btn-register {
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    border-width: 2px;
+}
+.btn-logout:hover {
+    background-color: #dc3545;
+    color: white;
+}
 .login-card {
+    margin: auto;
     border: none;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -24,7 +43,14 @@ body {
     text-align: center;
     border: none;
 }
-
+.dashboard-content{
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+}
 .btn-login {
     background: #764ba2;
     border: none;
@@ -37,6 +63,7 @@ body {
     background: #5a3782;
     transform: translateY(-2px);
 }
+
 /* Estilo adicional para botones secundarios */
 .btn-outline-primary {
     color: #764ba2;
@@ -48,3 +75,73 @@ body {
     border-color: #764ba2;
     color: white;
 }
+/*DASHBOARD*/
+.dashboard-content{
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 900px;
+    width: 100%;
+}
+/* Estilos Generales del Dashboard */
+.rounded-4 { border-radius: 1rem !important; }
+
+/* Contenedor de Hábitos */
+.habit-card {
+    transition: all 0.3s ease;
+    min-height: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.habit-icon-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Crea 3 columnas para centrar la del medio */
+    align-items: start;
+    width: 100%;
+}
+
+.habit-icon {
+    grid-column: 2; /* Obliga al icono a estar en el centro */
+    font-size: 2.5rem;
+}
+
+.habit-streak-badge {
+    grid-column: 3; /* Envía la racha a la derecha sin empujar al icono */
+    justify-self: end;
+}
+
+/* Mapa de Calor (Heatmap) */
+.heatmap {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    max-width: 350px;
+    margin: 0 auto;
+}
+
+.heatmap-day {
+    width: 35px;
+    height: 35px;
+    background-color: #ebedf0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #999;
+    transition: transform 0.2s;
+}
+
+.heatmap-day:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+/* Colores de Intensidad del Calendario */
+.heat-low { background-color: #c6e48b !important; color: #1e3a1e !important; }
+.heat-medium { background-color: #7bc96f !important; color: #fff !important; }
+.heat-high { background-color: #239a3b !important; color: #fff !important; }
